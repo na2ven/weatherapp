@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 const Weather = () => {
-  const [city, setCity] = useState("London");
+  const [city, setCity] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(null);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const apiKey = "598bf0a0109d4d201c0228e96115fd92";
   const fetchWeatherData = async () => {
@@ -71,7 +71,7 @@ const Weather = () => {
             darkMode ? "bg-gray-700" : "bg-gray-200"
           }`}
         >
-          {darkMode ? "LightTheme" : "DarkTheme"}
+          {darkMode ? "DarkTheme" : "LightTheme"}
         </button>
       </div>
       <div className="mb-4">
@@ -110,9 +110,9 @@ const Weather = () => {
             {weatherData.name}, {weatherData.sys.country}
           </h3>
           <div className="flex items-center mt-2">
-            <p className="mt-2">{weatherData.weather[0].description}</p>
+            <p className=" mr-2">{weatherData.weather[0].description}</p>
             <p>Humidity: {weatherData.main.humidity}%</p>
-            <p>Wind Speed: {weatherData.wind.speed} m/s</p>
+            <p className="ml-2">Wind Speed: {weatherData.wind.speed} m/s</p>
           </div>
         </div>
       )}
